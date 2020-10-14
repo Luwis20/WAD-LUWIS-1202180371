@@ -23,7 +23,7 @@
     </nav>
     </span>
     <br>
-        <?php
+        <php
         $name = $_GET['nama'];
         $date = $_GET['tgl'];
         $nohp = $_GET['nohp'];
@@ -60,7 +60,7 @@
             <td><?php echo $checkout = date('Y-m-d', strtotime($date . ' + ' . $durasi . ' days'));; ?></td>
             <td><?php echo $jeniskamar; ?></td>
             <td><?php echo $nohp; ?></td>
-             <td><?php if (!empty($_GET["service"])){
+             <td><?php if (!empty($_GET["servis"])){
                 $service = $_GET['service'];
                 $much = count($service);
                 $sum = $sum + (20 * $much);
