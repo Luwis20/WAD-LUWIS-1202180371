@@ -32,7 +32,7 @@
       <div class="container mt-4 ">
       <div class="row no-gutters">
       <div class="col-md-4">
-      <form action="mybooking.php" method="POST">
+      <form action="mybooking.php" method="GET">
               <div class="form-group">
               <label for="formGroupExampleInput">Name</label>
               <input type="text" required class="form-control" name="nama">
