@@ -41,7 +41,7 @@ CREATE TABLE `event` (
   `harga` bigint(20) NOT NULL,
   `benefit` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
+  
 --
 -- Dumping data for table `event`
 --

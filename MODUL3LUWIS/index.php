@@ -133,7 +133,7 @@
 
 				if ($result->num_rows > 0) {
 				  // output data of each row
-				  while($row = $result->fetch_asoc()) {?>
+				  while($row = $result->fetch_assoc()) {?>
 				    <div class="card">
 						<img class="fakeimg" src="img/<?php echo($row["gambar"]);?>">
 						<div class="text">

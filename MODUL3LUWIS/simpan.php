@@ -27,8 +27,8 @@
 		}else{
 			if($ukuran < 1044070){		
 				$xx = $rand.'_'.$filename;
-				move_uploaded_file($_FILES['upload']['tmp_name'], 'img/'.$rand.'_'.$filename);
-				$sql = "INSERT INTO `events` (`name`, `deskripsi`, `gambar`, `kategori`, `tanggal`, `mulai`, `berakhir`, `tempat`, `harga`, `benefit`) VALUES ('$name', '$deskripsi', '$xx', '$kategori', '$tgl', '$jm', '$jb', '$tempat', '$harga', '$for_query')";
+				move_uploaded_file($FILES['upload']['tmp_name'], 'img/'.$rand.''.$filename);
+				$sql = "INSERT INTO `event` (`name`, `deskripsi`, `gambar`, `kategori`, `tanggal`, `mulai`, `berakhir`, `tempat`, `harga`, `benefit`) VALUES ('$name', '$deskripsi', '$xx', '$kategori', '$tgl', '$jm', '$jb', '$tempat', '$harga', '$for_query')";
 				if ($conn->query($sql) === TRUE) {
 				  header("location:index.php");
 				} else {
