@@ -22,7 +22,6 @@ if(isset($_SESSION['is_login']))
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/sign-in/">
 
-    <!-- Bootstrap core CSS -->
 <link href="assets/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 
 
@@ -49,7 +48,7 @@ if(isset($_SESSION['is_login']))
           width: 100%;
       }
     </style>
-    <!-- Custom styles for this template -->
+
     <link href="assets/css/signin.css" rel="stylesheet">
   </head>
   <body class="text-center" style="background-color: aliceblue;">
@@ -119,7 +118,7 @@ if(isset($_SESSION['is_login']))
   <button class="btn btn-lg btn-primary btn-block" type="submit" name="login">Login</button>
   Belum punya akun?
   <a href="register.php">Register</a>
-  <!-- <p class="mt-5 mb-3 text-muted">Warung Belajar &copy; 2019</p> -->
+  
 </form>
 </body>
 </html>

@@ -7,7 +7,8 @@ if(! isset($_SESSION['is_login']))
   header('location:login.php');
 }
 $iduser = $_SESSION['iduser'];
-
+$ambilData = mysqli_query($database->koneksi, "select * from user where email = '".$_SESSION['email']."'");
+$fetData = $ambilData->fetch_array();
 ?>
 <!doctype html>
 <html lang="en">
@@ -108,7 +109,7 @@ $iduser = $_SESSION['iduser'];
     </ul>
     <a href="cart.php"><img src="assets/Icon Keranjang.png" style="width: 20px;"></a>
     <div class="dropdown">
-      <label class="dropbtn">Welcome, <?php echo $_SESSION['nama']; ?></label>
+      <label class="dropbtn">Welcome, <?php echo $fetData['nama']; ?></label>
       <div class="dropdown-content">
         <a href="profil.php">Profile</a>
         <a href="logout.php">Logout</a>

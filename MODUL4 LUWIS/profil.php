@@ -12,6 +12,9 @@ if(! isset($_SESSION['is_login']))
 }
 $iduser = $_SESSION['iduser'];
 // error_reporting(0);
+$ambilData = mysqli_query($database->koneksi, "select * from user where email = '".$_SESSION['email']."'");
+$fetData = $ambilData->fetch_array();
+
 ?>
 <!doctype html>
 <html lang="en" class="h-100">
@@ -109,7 +112,7 @@ $iduser = $_SESSION['iduser'];
     </ul>
     <a href="cart.php"><img src="assets/Icon Keranjang.png" style="width: 20px;"></a>
     <div class="dropdown">
-      <label class="dropbtn">Welcome, <?php echo $_SESSION['nama'];?></label>
+      <label class="dropbtn">Welcome, <?php echo $fetData['nama'];?></label>
       <div class="dropdown-content">
         <a href="profil.php">Profile</a>
         <a href="logout.php">Logout</a>
@@ -133,9 +136,9 @@ $iduser = $_SESSION['iduser'];
   <label style="margin-left: -250px;">Email</label>
   <input type="text" id="email" class="form-control" value="<?php echo $_SESSION['email'];?>" name="email" required disabled>
   <label style="margin-left: -84%;">Nama</label>
-  <input type="text" id="nama" class="form-control" placeholder="Masukkan nama" value="<?php echo $_SESSION['nama'];?>" name="nama" required autofocus>
+  <input type="text" id="nama" class="form-control" placeholder="Masukkan nama" value="<?php echo $fetData['nama'];?>" name="nama" required autofocus>
   <label style="margin-left: -60%;">No. Handphone</label>
-  <input type="number" id="nohp" class="form-control" placeholder="Masukkan nomor handphone" value="<?php echo $_SESSION['nohp'];?>" name="nohp" required>
+  <input type="number" id="nohp" class="form-control" placeholder="Masukkan nomor handphone" value="<?php echo $fetData['no_hp'];?>" name="nohp" required>
   <label style="margin-left: -72%;">Kata Sandi</label>
   <input type="password" id="pass" class="form-control" placeholder="Buat kata sandi" name="pass" required>
   <label style="margin-left: -48%;">Konfirmasi Kata Sandi</label>
@@ -156,9 +159,9 @@ $iduser = $_SESSION['iduser'];
 if (isset($_POST['submit'])) {
   
   if ($_POST['pass'] == $_POST['conpass']) {
+    // echo "update user set nama = '".$_POST['nama']."', no_hp = '".$_POST['nohp']."', password = '".$_POST['pass']."' where email = '".$_SESSION['email']."'"; exit();
     if(mysqli_query($database->koneksi, "update user set nama = '".$_POST['nama']."', no_hp = '".$_POST['nohp']."', password = '".$_POST['pass']."' where email = '".$_SESSION['email']."'") or die(mysqli_error())){
       // $_SESSION['warna'] = $_POST['pilihannavbar'];
-      
       $alert = '"#alertberhasil"';
     }
   }elseif ($_POST['pass'] != $_POST['conpass']){
@@ -169,6 +172,9 @@ if (isset($_POST['submit'])) {
 
            $(<?php echo $alert; ?>).show();
            setTimeout(function(){ $(<?php echo $alert; ?>).hide(); }, 2000);
+           setTimeout(function() {
+              window.location.replace("profil.php");
+            }, 2000);
         });
       </script>
 <?php }?>
